@@ -6,7 +6,7 @@ import { datetimeToUnixTimestamp } from 'utils/dateTime'
 import { promises as fs } from 'fs'
 import path from 'path'
 import PQueue from 'p-queue'
-import moment from 'moment'
+import makeBlockie from 'ethereum-blockies-base64'
 
 const SPEAKER_SHEET = 'Speakers'
 const SPEAKER_DATA_RANGE = 'A3:I'
@@ -113,12 +113,13 @@ export async function GetStages(config: DataConfig): Promise<Stage[]> {
 export async function getSpeakers(config: DataConfig): Promise<Speaker[]> {
   const data = await getDataForRange(config, SPEAKER_SHEET, SPEAKER_DATA_RANGE)
   return data.map((row: any) => {
-    const [id, name, Description, AvatarUrl] = row
+    const [id, name, Description, AvatarUrl, Twitter] = row
     return {
       id: name,
       name,
       description: Description,
-      avatar: AvatarUrl ?? null,
+      avatar: AvatarUrl ?? makeBlockie(name),
+      twitter: Twitter ?? null
     }
   })
 }

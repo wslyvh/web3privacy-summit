@@ -42,6 +42,7 @@ export interface Speaker {
   description: string
   avatar?: string
   avatarUrl?: string
+  twitter?: string
 }
 
 export interface StreamId {

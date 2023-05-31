@@ -78,15 +78,15 @@ export function StageComponent() {
           <div className="h-1/2 lg:w-1/3 p-3 flex-grow  lg:pl-0 lg:pb-2 lg:pt-2 lg:pr-4 box-border flex flex-col overflow-auto lg:mt-0 lg:h-full">
             <div className="flex flex-row">
               <Tab index={0} currentIndex={tab} setIndex={() => setTab(0)}>
-                Chat
+                Schedule
               </Tab>
               <Tab index={1} currentIndex={tab} setIndex={() => setTab(1)}>
-                Schedule
+                Chat
               </Tab>
             </div>
             <div className="flex flex-col w-full overflow-y-auto h-full">
-              {tab === 0 && <ChatBar conversationId={currentStage.id} />}
-              {tab === 1 && <SessionList sessions={sessions} currentSession={activeSession} isLive={false} />}
+              {tab === 0 && <SessionList sessions={sessions} currentSession={activeSession} isLive={false} />}
+              {tab === 1 && <ChatBar conversationId={currentStage.id} />}
             </div>
           </div>
         </div>

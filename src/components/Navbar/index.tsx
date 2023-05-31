@@ -16,7 +16,9 @@ export default function Navbar({ pages }: { pages: page[] }) {
   const path = router.asPath
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const extendedPages: page[] = [...pages, { name: 'Archive', href: '/archive' }]
+  const extendedPages: page[] = [
+    { name: 'Web3Privacy Summit', href: 'https://prague.web3privacy.info/' }
+  ] // [...pages, { name: 'Archive', href: '/archive' }]
 
   return (
     <nav className="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 py-2 h-[5rem] z-50">

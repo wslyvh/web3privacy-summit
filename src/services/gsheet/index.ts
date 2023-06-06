@@ -18,18 +18,14 @@ const SESSION_SHEET = 'Sessions'
 const SESSION_DATA_RANGE = 'A3:M'
 
 const API_QUEUE = new PQueue({ concurrency: 1, interval: 1500 })
-const dev = process.env.NODE_ENV !== 'production'
 
 async function createLocalJsonCache(data: any, filename: string) {
-  if (!dev) return
   const cachePath = path.join(process.cwd(), 'cache')
   await fs.mkdir(cachePath, { recursive: true })
   await fs.writeFile(path.join(cachePath, `${filename}.json`), JSON.stringify(data))
 }
 
-async function getLocalJsonCache(filename: string) {
-  if (!dev) return
-  
+async function getLocalJsonCache(filename: string) {  
   const cachePath = path.join(process.cwd(), 'cache')
   const cacheFile = path.join(cachePath, `${filename}.json`)
 

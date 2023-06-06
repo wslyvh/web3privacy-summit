@@ -7,6 +7,7 @@ import { GetSessions } from 'services/sessions'
 import { PageContextProvider } from 'context/page-context'
 import DefaultLayout from 'layouts/default'
 import { StageComponent } from 'components/Stage/StageComponent'
+import ArchiveComponent from 'components/Archive/ArchiveComponent'
 
 interface Props {
   stages: Stage[]
@@ -19,8 +20,8 @@ export default function StagePage({ stage, sessions, pages }: Props) {
   return (
     <PageContextProvider sessions={sessions} stage={stage}>
       <DefaultLayout pages={pages}>
-        {stage && <SEO title={stage.name} />}
-        <StageComponent />
+        <SEO title="archive" />
+        <ArchiveComponent />
       </DefaultLayout>
     </PageContextProvider>
   )
